@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.carrotgarden.a</groupId>
+        <artifactId>carrot-a</artifactId>
+        <version>0-SNAPSHOT</version>
+        <relativePath>.mvn</relativePath>
+    </parent>
+
+    <groupId>com.carrotgarden.maven</groupId>
+    <artifactId>arkon-maven-extension</artifactId>
+    <version>${revision}</version>
+    <packaging>jar</packaging>
+
+    <url>https://github.com/random-maven</url>
+
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+        </license>
+    </licenses>
+
+    <name>Arkon Maven Extension</name>
+
+    <description>Dynamically provision global remote maven project parent</description>
+
+    <properties>
+        <release.epoch>1.0</release.epoch>
+        <bintray.subject>random-maven</bintray.subject>
+        <bintray.repository>maven</bintray.repository>
+    </properties>
+
+    <dependencies>
+
+        <!-- Uses only components provided by maven distro. -->
+
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-core</artifactId>
+            <version>3.5.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-component-annotations</artifactId>
+            <version>1.7.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-http</artifactId>
+            <version>3.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Package as maven extension. -->
+            <plugin>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-component-metadata</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-metadata</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Invoke integration tests. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-invoker-plugin</artifactId>
+                <configuration>
+                    <showErrors>true</showErrors>
+                    <streamLogs>true</streamLogs>
+                    <cloneAllFiles>true</cloneAllFiles>
+                    <settingsFile>src/it/settings.xml</settingsFile>
+                    <pomIncludes>
+                        <pomInclude>*/pom.xml</pomInclude>
+                    </pomIncludes>
+                    <goals>
+                        <goal>clean</goal>
+                        <goal>package</goal>
+                    </goals>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
