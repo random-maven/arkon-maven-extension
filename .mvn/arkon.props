@@ -1,4 +1,8 @@
 #
+# arkon-maven-extension
+#
+
+#
 # Available extension settings with default values.
 #
 
@@ -26,5 +30,26 @@
 # Project-relative local destination folder for download.
 #targetDir = .mvn
 
-# Separator-delimited download resource path list.
-#pathList = pom.xml; extensions.xml; 
+# Separator-delimited download resource path list. Will trim spaces.
+#pathList = pom.xml ; extensions.xml ; 
+
+#
+# Active configuration of this project
+#
+
+fresh = true
+
+pathList = \
+    pom.xml ; \
+    extensions.xml ; \
+    ci/settings.xml ; \
+    ci/toolchains.xml ; \
+    wrapper/maven-wrapper.jar ; \
+    wrapper/maven-wrapper.properties ; \
+    install.sh ; \
+    package.sh ; \
+    verify.sh ; \
+    site.sh ; \
+    release-bintray.sh ; \
+    release-sonatype.sh ; \
+    github-squash.sh ; \

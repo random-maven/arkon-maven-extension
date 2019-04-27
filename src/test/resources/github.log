@@ -1,0 +1,33 @@
+
+> GET /random-maven/arkon/master/pom.xml HTTP/1.1
+> Host: raw.githubusercontent.com
+> User-Agent: curl/7.57.0
+> Accept: */*
+> 
+{ [5 bytes data]
+< HTTP/1.1 200 OK
+< Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+< Strict-Transport-Security: max-age=31536000
+< X-Content-Type-Options: nosniff
+< X-Frame-Options: deny
+< X-XSS-Protection: 1; mode=block
+< ETag: "8f8eb5d294b087cc04b8aee6e0b80d60f25e6018"
+< Content-Type: text/plain; charset=utf-8
+< Cache-Control: max-age=300
+< X-Geo-Block-List:
+< X-GitHub-Request-Id: DFBE:411C:5CCC3:63DA1:5A26CCBF
+< Content-Length: 251110
+< Accept-Ranges: bytes
+< Date: Tue, 05 Dec 2017 16:44:54 GMT
+< Via: 1.1 varnish
+< Connection: keep-alive
+< X-Served-By: cache-mdw17335-MDW
+< X-Cache: HIT
+< X-Cache-Hits: 1
+< X-Timer: S1512492295.885900,VS0,VE1
+< Vary: Authorization,Accept-Encoding
+< Access-Control-Allow-Origin: *
+< X-Fastly-Request-ID: 8ab11052a53ea5c8152c76434178be456db204d4
+< Expires: Tue, 05 Dec 2017 16:49:54 GMT
+< Source-Age: 70
+< 

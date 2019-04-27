@@ -7,6 +7,6 @@ bin/
 target/
 .cache*
 
-*.log
-
 pom.xml.flatten
+
+test-repo/

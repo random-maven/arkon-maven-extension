@@ -1,0 +1,5 @@
+
+fresh = true
+
+pathList = \
+    pom.xml ; \

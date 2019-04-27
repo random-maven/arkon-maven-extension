@@ -53,13 +53,13 @@ public class Extension extends AbstractMavenLifecycleParticipant {
 	 */
 	static interface settings {
 		/** Name space for environment/properties override. */
-		String a = "arkon-maven-extension";
+		String a = "arkon_maven_extension";
 		/** Project-relative folder with properties file. */
-		String dir = entry(a + ".dir", ".mvn");
+		String dir = entry(a + "_dir", ".mvn");
 		/** Name of the extension configuration properties file. */
-		String file = entry(a + ".file", "arkon.props");
+		String file = entry(a + "_file", "arkon.props");
 		/** Global behaviour changer: use top parent vs given module folder. */
-		boolean root = Boolean.parseBoolean(entry(a + ".root", "true"));
+		boolean root = Boolean.parseBoolean(entry(a + "_root", "true"));
 	}
 
 	/** 
@@ -89,9 +89,9 @@ public class Extension extends AbstractMavenLifecycleParticipant {
 	/** 
 	 * Default extension configuration values. 
 	 */
-	static interface val {
+	static interface value {
 		/** Name space for environment/properties override: values. */
-		String a = settings.a + ".val.";
+		String a = settings.a + "_value_";
 		/** Loud by default. */
 		String quiet = entry(a + key.quiet, "false");
 		/** Use "Last-Modified" header. */
@@ -161,15 +161,15 @@ public class Extension extends AbstractMavenLifecycleParticipant {
 	 * Provide configuration defaults. 
 	 */
 	void initialize(Properties config) throws Exception {
-		config.setProperty(key.quiet, val.quiet);
-		config.setProperty(key.fresh, val.fresh);
-		config.setProperty(key.offline, val.offline);
-		config.setProperty(key.separator, val.separator);
-		config.setProperty(key.serverId, val.serverId);
-		config.setProperty(key.serverURL, val.serverURL);
-		config.setProperty(key.sourceDir, val.sourceDir);
-		config.setProperty(key.targetDir, val.targetDir);
-		config.setProperty(key.pathList, val.pathList);
+		config.setProperty(key.quiet, value.quiet);
+		config.setProperty(key.fresh, value.fresh);
+		config.setProperty(key.offline, value.offline);
+		config.setProperty(key.separator, value.separator);
+		config.setProperty(key.serverId, value.serverId);
+		config.setProperty(key.serverURL, value.serverURL);
+		config.setProperty(key.sourceDir, value.sourceDir);
+		config.setProperty(key.targetDir, value.targetDir);
+		config.setProperty(key.pathList, value.pathList);
 	}
 
 	/** 

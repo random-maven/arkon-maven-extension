@@ -15,7 +15,12 @@
     <version>${revision}</version>
     <packaging>jar</packaging>
 
-    <url>https://github.com/random-maven</url>
+    <url>https://github.com/random-maven/arkon-maven-extension</url>
+    <scm>
+        <url>https://github.com/random-maven/arkon-maven-extension</url>
+        <connection>scm:git:git@github.com:random-maven/arkon-maven-extension.git</connection>
+        <developerConnection>scm:git:git@github.com:random-maven/arkon-maven-extension.git</developerConnection>
+    </scm>
 
     <licenses>
         <license>
@@ -28,7 +33,8 @@
     <description>Dynamically provision global remote maven project parent</description>
 
     <properties>
-        <release.epoch>1.0</release.epoch>
+        <release.epoch>1.1</release.epoch>
+        <version.java>1.8</version.java>
         <bintray.subject>random-maven</bintray.subject>
         <bintray.repository>maven</bintray.repository>
     </properties>
@@ -83,15 +89,7 @@
                 <configuration>
                     <showErrors>true</showErrors>
                     <streamLogs>true</streamLogs>
-                    <cloneAllFiles>true</cloneAllFiles>
-                    <settingsFile>src/it/settings.xml</settingsFile>
-                    <pomIncludes>
-                        <pomInclude>*/pom.xml</pomInclude>
-                    </pomIncludes>
-                    <goals>
-                        <goal>clean</goal>
-                        <goal>package</goal>
-                    </goals>
+                    <localRepositoryPath>${project.basedir}/test-repo</localRepositoryPath>
                 </configuration>
             </plugin>
 
